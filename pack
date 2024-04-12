@@ -1,14 +1,11 @@
 #!/bin/bash
-
 baseDir="$( cd "$(dirname "$0")" && pwd )"
 cd "$baseDir"
-
 COL_OFF="\033[0m"
 COL_BOLD="\033[01;01m"
 COL_RED="\033[31m"
 COL_GREEN="\033[32m"
 COL_YELLOW="\033[33m"
-
 function safe_execute {
   echo -e "\n[....] $*"
   $*
@@ -20,7 +17,6 @@ function safe_execute {
     exit 1
   fi
 }
-
 function check {
   # ./app/pack check
   ./app-electron/pack check
@@ -28,7 +24,6 @@ function check {
   ./modules/pack check
   ./assets/pack check
 }
-
 function build {
   # safe_execute ./app/pack build
   safe_execute ./app-electron/pack build
@@ -36,7 +31,6 @@ function build {
   safe_execute ./modules/pack build
   safe_execute ./assets/pack build
 }
-
 function reset {
   # ./app/pack reset
   ./app-electron/pack reset
@@ -44,7 +38,6 @@ function reset {
   ./modules/pack reset
   ./assets/pack reset
 }
-
 case $1 in
   "check" )
     check
